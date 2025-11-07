@@ -1,3 +1,10 @@
+@font-face {
+	font-family: 'BukraBold';
+	src: url('../fonts/BukraBold-Regular.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
 /*======================================
     Variables
 ========================================*/
@@ -1975,6 +1982,15 @@ ol {
 /*======================================
     Hero Area CSS
 ========================================*/
+
+.hero-area h1 {
+	font-family: 'BukraBold', sans-serif;
+	font-size: 3.5rem !important;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #000;
+}
+
 .hero-area {
   position: relative;
   padding: 180px 0 120px 0;
@@ -2328,115 +2344,158 @@ ol {
   }
 }
 
-/*=============================
-	Pricing Table CSS
-===============================*/
-.pricing-table {
-  background-color: #f9f9f9;
-}
-
-.pricing-table .section-title {
-  margin-bottom: 50px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
-  .pricing-table .section-title {
-    margin-bottom: 30px;
+/* ====== COMO FUNCIONA - CAMPUS EATS ====== */
+  #how-it-works .row.d-flex {
+    display: flex;
+    flex-wrap: wrap;
   }
+
+#how-it-works {
+	padding: 100px 0;
+	background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+	position: relative;
+	text-align: center;
+	overflow: hidden;
 }
 
-.pricing-table .single-table {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  margin-top: 30px;
-  background-color: #fff;
-  -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
+#how-it-works .section-title h3 {
+	color: #ea2f39;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
 }
 
-.pricing-table .single-table:hover:hover {
-  -webkit-box-shadow: 0px 3px 5px #00000017;
-          box-shadow: 0px 3px 5px #00000017;
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+#how-it-works .section-title h2 {
+	font-size: 2.2rem;
+	font-weight: 700;
+	margin-bottom: 15px;
+	color: #222;
 }
 
-.pricing-table .single-table .table-head {
-  padding: 25px;
-  border-bottom: 1px solid #eee;
+#how-it-works .section-title p {
+	color: #555;
+	max-width: 650px;
+	margin: 0 auto 60px;
+	line-height: 1.6;
 }
 
-.pricing-table .single-table .table-head .title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 20px;
+/* ====== Cards ====== */
+
+.single-table {
+	background: #fff;
+	border-radius: 20px;
+	padding: 40px 25px;
+	box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+	position: relative;
+	z-index: 1;
 }
 
-.pricing-table .single-table .table-head p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+
+.single-table:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.pricing-table .single-table .table-head .price {
-  padding: 30px 0;
+.single-table .icon {
+	font-size: 48px;
+	color: #ea2f39;
+	margin-top: 25px;
 }
 
-.pricing-table .single-table .table-head .price .amount {
-  font-size: 30px;
-  font-weight: 700;
-  display: inline-block;
+.single-table .title {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: #222;
 }
 
-.pricing-table .single-table .table-head .price .amount .duration {
-  display: inline-block;
-  font-size: 14px;
-  color: #888;
-  font-weight: 400;
-  margin-left: 3px;
+.single-table p {
+	color: #666;
+	font-size: 0.95rem;
+	line-height: 1.5;
 }
 
-.pricing-table .single-table .table-head .button .btn {
-  width: 100%;
-  padding: 12px 30px;
-  font-size: 13px;
-  background-color: #081828;
+/* ====== Setas entre os cards ====== */
+
+@media (min-width: 992px) {
+	.single-table::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		right: -35px;
+		width: 60px;
+		height: 2px;
+		background: #ea2f39;
+		transform: translateY(-50%);
+	}
+	.single-table::before {
+		content: "➜";
+		position: absolute;
+		top: 50%;
+		right: -45px;
+		transform: translateY(-50%);
+		font-size: 20px;
+		color: #ea2f39;
+	}
+
+	/* Remove a seta do último card */
+	.col-lg-3:last-child .single-table::after,
+	.col-lg-3:last-child .single-table::before {
+		display: none;
+	}
 }
 
-.pricing-table .single-table .table-head .button .btn:hover {
-  background-color: #ea2f39;
-  color: #fff;
+/* ====== Responsividade ====== */
+
+@media (max-width: 991px) {
+	#how-it-works {
+		padding: 70px 0;
+	}
+
+	.single-table {
+		margin-bottom: 30px;
+	}
+
+	.single-table::after,
+	.single-table::before {
+		display: none !important;
+	}
 }
 
-.pricing-table .single-table .table-content {
-  padding: 25px;
+/* ====== Animações extras (scroll reveal) ====== */
+
+.single-table {
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeUp 0.8s forwards;
 }
 
-.pricing-table .single-table .table-content .middle-title {
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-bottom: 25px;
+.single-table:nth-child(1) {
+	animation-delay: 0.2s;
+}
+.single-table:nth-child(2) {
+	animation-delay: 0.4s;
+}
+.single-table:nth-child(3) {
+	animation-delay: 0.6s;
+}
+.single-table:nth-child(4) {
+	animation-delay: 0.8s;
 }
 
-.pricing-table .single-table .table-content .table-list li {
-  position: relative;
-  padding-left: 25px;
-  font-size: 14px;
-  margin-bottom: 13px;
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-.pricing-table .single-table .table-content .table-list li:last-child {
-  margin: 0;
-}
-
-.pricing-table .single-table .table-content .table-list li i {
-  color: #ea2f39;
-  font-size: 14px;
-  position: absolute;
-  left: 0;
-  top: 4px;
-}
 
 /*======================================
     Call To Action CSS
